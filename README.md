@@ -1,6 +1,6 @@
-[![role](https://img.shields.io/ansible/role/55570)](https://galaxy.ansible.com/trallnag/poetry)
-[![quality](https://img.shields.io/ansible/quality/55570)](https://galaxy.ansible.com/trallnag/poetry)
-[![downloads](https://img.shields.io/ansible/role/d/55570?label=downloads)](https://galaxy.ansible.com/trallnag/poetry)
+[![role](https://img.shields.io/ansible/role/55573)](https://galaxy.ansible.com/trallnag/poetry)
+[![quality](https://img.shields.io/ansible/quality/55573)](https://galaxy.ansible.com/trallnag/poetry)
+[![downloads](https://img.shields.io/ansible/role/d/55573?label=downloads)](https://galaxy.ansible.com/trallnag/poetry)
 
 # Ansible Role for Python Poetry
 
