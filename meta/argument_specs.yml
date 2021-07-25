@@ -3,9 +3,9 @@ argument_specs:
     short_description: The main entry point for the "{{ role_name }}" role.
     options:
       poetry_version:
+        default: 1.1.7
         type: raw
         required: false
-        default: 1.1.7
         description: >-
           Poetry version to install. Will be passed together with the `--version`
           flag to the poetry installer. Check at <https://github.com/python-poetry/poetry>.

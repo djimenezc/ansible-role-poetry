@@ -4,17 +4,24 @@
 
 # Ansible Role for Python Poetry
 
-Ansible role that installs Python Poetry on Linux.
+Ansible role that installs [Python Poetry][python-poetry] on Linux.
+
+[python-poetry]: https://github.com/python-poetry/poetry
 
 Available on [Ansible Galaxy](https://galaxy.ansible.com/trallnag/poetry).
+
+## Content
+
+* Installs Python Poetry via the official installer script.
+* Adds init block to `~/.bashrc`.
 
 ## Role Variables
 
 ```yaml
 poetry_version:
+  default: 1.1.7
   type: raw
   required: false
-  default: 1.1.7
   description: >-
     Poetry version to install. Will be passed together with the `--version`
     flag to the poetry installer. Check at <https://github.com/python-poetry/poetry>.
