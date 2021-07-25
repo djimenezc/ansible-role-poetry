@@ -20,3 +20,9 @@
     marker: "# {mark} :: ANSIBLE MANAGED BLOCK :: {{ role_name }} :: PATH"
     block: |
       export PATH="~/.local/bin:$PATH"
+
+- name: Enable tab completion for Bash
+  shell: |
+    export PATH="~/.local/bin:$PATH"
+    poetry completions bash | sudo tee -a /etc/bash_completion.d/poetry.bash-completion > /dev/null
+  changed_when: "'a' in 'b'"

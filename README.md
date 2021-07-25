@@ -14,6 +14,7 @@ Available on [Ansible Galaxy](https://galaxy.ansible.com/trallnag/poetry).
 
 * Installs Python Poetry via the official installer script.
 * Adds init block to `~/.bashrc`.
+* Enables tab completion for Bash.
 
 ## Role Variables
 
@@ -44,6 +45,8 @@ poetry_version:
 ## Special Requirements
 
 * Python must be installed and available via `python3`.
+* Passwordless sudo must be working. Required for activating tab completion for
+  Bash. Could be refactored if need arises.
 
 ## Special Dependencies
 

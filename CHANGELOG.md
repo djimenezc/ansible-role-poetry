@@ -11,6 +11,12 @@ specification.
 
 * Nothing
 
+## [1.1.0] 2021-07-25
+
+### Added
+
+* Tab completion for Bash.
+
 ## [1.0.1] 2021-07-25
 
 ### Changed
