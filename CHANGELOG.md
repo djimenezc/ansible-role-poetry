@@ -9,7 +9,13 @@ specification.
 
 ## Unreleased
 
-* Nothing
+* Nothing.
+
+## [2.1.0] 2021-07-26
+
+### Added
+
+* Option to set the Python executable that is used for installing Poetry.
 
 ## [2.0.1] 2021-07-26
 
@@ -41,4 +47,4 @@ specification.
 
 ## Unreleased
 
-* Nothing
+* Nothing.

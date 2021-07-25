@@ -26,6 +26,13 @@ poetry_version:
   description: >-
     Poetry version to install. Will be passed together with the `--version`
     flag to the poetry installer. Check at <https://github.com/python-poetry/poetry>.
+
+poetry_python_path:
+  default: python
+  type: raw
+  required: false
+  description: >-
+    Python executable that should be used for installation of Poetry.
 ```
 
 ## Example Playbook
@@ -40,6 +47,7 @@ poetry_version:
     - name: trallnag.poetry
       vars:
         poetry_version: 1.1.7
+        poetry_python_path: python
 ```
 
 ## Special Requirements
