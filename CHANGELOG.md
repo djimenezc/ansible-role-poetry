@@ -11,6 +11,12 @@ specification.
 
 * Nothing
 
+## [2.0.1] 2021-07-26
+
+### Changed
+
+* Reverted breaking change. Now both `python` and `python3` are supported.
+
 ## [2.0.0] 2021-07-25
 
 ### Changed
