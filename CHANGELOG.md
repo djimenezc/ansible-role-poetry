@@ -11,6 +11,12 @@ specification.
 
 * Nothing
 
+## [2.0.0] 2021-07-25
+
+### Changed
+
+* **BREAKING:** Switched from `python3` to `python`.
+
 ## [1.1.0] 2021-07-25
 
 ### Added
