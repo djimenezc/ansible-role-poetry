@@ -44,7 +44,6 @@ poetry_version:
 
 ## Special Requirements
 
-* Python must be installed and available via `python`.
 * Passwordless sudo must be working. Required for activating tab completion for
   Bash. Could be refactored if need arises.
 
