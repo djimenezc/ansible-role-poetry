@@ -1,6 +1,6 @@
 argument_specs:
   main:
-    short_description: The main entry point for the "{{ role_name }}" role.
+    short_description: Main entry point for the "{{ role_name }}" role
     options:
       poetry_version:
         default: 1.1.7
