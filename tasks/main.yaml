@@ -3,7 +3,7 @@
     if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}$'; then
       curl -sSL https://install.python-poetry.org | {{ poetry_python_path }} - --version {{ poetry_version }}
 
-      if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}$'; then
+      if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}'; then
         exit 1
       else
         echo status=changed
