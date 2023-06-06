@@ -1,32 +1,50 @@
-- name: Fetch and run Poetry installer script
-  shell: |
-    if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}'; then
-      curl -sSL https://install.python-poetry.org | {{ poetry_python_path }} - --version {{ poetry_version }}
+#- name: Fetch and run Poetry installer script
+#  shell: |
+#    if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}'; then
+#      curl -sSL https://install.python-poetry.org | {{ poetry_python_path }} - --version {{ poetry_version }}
+#
+#      if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}'; then
+#        echo 'Poetry not found, error'
+#        exit 1
+#      else
+#        echo 'Poetry installed successfully'
+#        echo status=changed
+#      fi
+#    else
+#      echo Poetry already installed
+#      exit 0
+#    fi
+#  register: task
+#  changed_when: "'status=changed' in task.stdout"
 
-      if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}'; then
-        echo 'Poetry not found, error'
-        exit 1
-      else
-        echo 'Poetry installed successfully'
-        echo status=changed
-      fi
-    else 
-      echo Poetry already installed
-    fi
-  register: task
-  changed_when: "'status=changed' in task.stdout"
+- name: Download poetry installer
+  get_url:
+    url="https://install.python-poetry.org"
+    dest="/home/{{ ansible_env.USER }}/Downloads/poetry_installer.py"
+
+- name: Install poetry
+  creates: /home/{{ ansible_env.USER }}/.local/bin/poetry
+  ansible.builtin.command: python3 /home/{{ ansible_env.USER }}/Downloads/poetry_installer.py
 
 - name: Add to path via shell config script
   blockinfile:
-    path: ~/.profile
+    path: /home/{{ ansible_env.USER }}/.profile
     insertafter: EOF
     state: present
     marker: "# {mark} :: ANSIBLE MANAGED BLOCK :: {{ role_name }} :: PATH"
     block: |
-      export PATH="~/.local/bin:$PATH"
+      export PATH="/home/{{ ansible_env.USER }}/.local/bin:$PATH"
 
 - name: Enable tab completion for Bash
   shell: |
-    export PATH="~/.local/bin:$PATH"
+    export PATH="/home/{{ ansible_env.USER }}/.local/bin:$PATH"
     poetry completions bash | sudo tee -a /etc/bash_completion.d/poetry.bash-completion > /dev/null
   changed_when: "'a' in 'b'"
+
+- name: Get poetry version
+  ansible.builtin.shell: poetry --version
+
+- name: Print return information from the previous task
+  ansible.builtin.debug:
+    msg:
+      - "Poetry version {{result}}"
