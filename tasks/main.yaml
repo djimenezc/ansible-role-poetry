@@ -4,10 +4,14 @@
       curl -sSL https://install.python-poetry.org | {{ poetry_python_path }} - --version {{ poetry_version }}
 
       if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}'; then
+        echo 'Poetry not found, error'
         exit 1
       else
+        echo 'Poetry installed successfully'
         echo status=changed
       fi
+    else 
+      echo Poetry already installed
     fi
   register: task
   changed_when: "'status=changed' in task.stdout"
