@@ -25,6 +25,7 @@
 
 - name: Get poetry version
   ansible.builtin.shell: /home/ubuntu/.local/bin/poetry --version
+  register: result
 
 - name: Print return information from the previous task
   ansible.builtin.debug:
