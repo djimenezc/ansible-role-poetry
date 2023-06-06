@@ -1,34 +1,15 @@
-#- name: Fetch and run Poetry installer script
-#  shell: |
-#    if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}'; then
-#      curl -sSL https://install.python-poetry.org | {{ poetry_python_path }} - --version {{ poetry_version }}
-#
-#      if ! ~/.local/bin/poetry --version | grep -q '{{ poetry_version }}'; then
-#        echo 'Poetry not found, error'
-#        exit 1
-#      else
-#        echo 'Poetry installed successfully'
-#        echo status=changed
-#      fi
-#    else
-#      echo Poetry already installed
-#      exit 0
-#    fi
-#  register: task
-#  changed_when: "'status=changed' in task.stdout"
-
 - name: Download poetry installer
   get_url:
     url="https://install.python-poetry.org"
     dest="/home/{{ ansible_env.USER }}/Downloads/poetry_installer.py"
 
 - name: Install poetry
-  creates: /home/{{ ansible_env.USER }}/.local/bin/poetry
-  ansible.builtin.command: python3 /home/{{ ansible_env.USER }}/Downloads/poetry_installer.py
+  creates: "/home/{{ ansible_env.USER }}/.local/bin/poetry"
+  ansible.builtin.command: "python3 /home/{{ ansible_env.USER }}/Downloads/poetry_installer.py"
 
 - name: Add to path via shell config script
   blockinfile:
-    path: /home/{{ ansible_env.USER }}/.profile
+    path: "/home/{{ ansible_env.USER }}/.profile"
     insertafter: EOF
     state: present
     marker: "# {mark} :: ANSIBLE MANAGED BLOCK :: {{ role_name }} :: PATH"
