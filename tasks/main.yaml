@@ -4,7 +4,7 @@
     dest="/home/ubuntu/Downloads/poetry_installer.py"
 
 - name: Install poetry
-  ansible.builtin.command: "python3 /home/ubuntu/Downloads/poetry_installer.py"
+  ansible.builtin.command: "python3 /home/ubuntu/poetry_installer.py"
   args:
     creates: "/home/ubuntu/.local/bin/poetry"
 
