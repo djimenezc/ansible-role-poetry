@@ -4,8 +4,9 @@
     dest="/home/{{ ansible_env.USER }}/Downloads/poetry_installer.py"
 
 - name: Install poetry
-  creates: "/home/{{ ansible_env.USER }}/.local/bin/poetry"
   ansible.builtin.command: "python3 /home/{{ ansible_env.USER }}/Downloads/poetry_installer.py"
+  args:
+    creates: "/home/{{ ansible_env.USER }}/.local/bin/poetry"
 
 - name: Add to path via shell config script
   blockinfile:
