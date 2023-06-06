@@ -1,7 +1,7 @@
 - name: Download poetry installer
   get_url:
     url="https://install.python-poetry.org"
-    dest="/home/ubuntu/Downloads/poetry_installer.py"
+    dest="/home/ubuntu/poetry_installer.py"
 
 - name: Install poetry
   ansible.builtin.command: "python3 /home/ubuntu/poetry_installer.py"
